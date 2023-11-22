@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Receipts Prediction</title>
+</head>
+<body>
+    <h1>Predict Scanned Receipts for 2022</h1>
+    <form action="/predict" method="post">
+        <label for="month">Select Month:</label>
+        <select id="month" name="month" required>
+            <option value="" disabled selected>Select Option</option>
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+        </select>
+        <input type="submit" value="Predict">
+    </form>
+    {% if prediction is defined %}
+        <h2>Predicted Receipts for Selected Month {{selected_month}}: {{ prediction }}</h2>
+    {% endif %}
+    {% if plot_url_2021 is defined %}
+        <h2>Visualization for 2021 Data</h2>
+        <img src="data:image/png;base64,{{ plot_url_2021 }}" alt="Plot for 2021 Data">
+    {% endif %}
+    {% if plot_url_2022 is defined %}
+        <h2>Visualization for 2022 Predictions</h2>
+        <img src="data:image/png;base64,{{ plot_url_2022 }}" alt="Plot for 2022 Predictions">
+    {% endif %}
+</body>
+</html>

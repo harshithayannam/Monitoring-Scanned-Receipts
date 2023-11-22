@@ -1,0 +1,5 @@
+pandas==1.5.3
+numpy==1.23.5
+tensorflow==2.15.0
+Flask==3.0.0
+matplotlib==3.5.3
